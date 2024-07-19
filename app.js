@@ -232,32 +232,176 @@
 
 
 
-let data = "data is private"
+// let data = "data is private"
 
-class user{
-    constructor(name , email){
-        this.name= name;
-        this.email =  email;
-    }
+// class user{
+//     constructor(name , email){
+//         this.name= name;
+//         this.email =  email;
+//     }
 
-    viewData(){
-        console.log("date is " ,  data);
+//     viewData(){
+//         console.log("date is " ,  data);
 
-    }
+//     }
+// }
+
+// class admin extends user {
+//     constructor(name , email){
+//         super(name,email);
+
+//     }
+
+//     editData(){
+//         data = "some new value"
+//     }
+
+// }
+
+// let st1  = new admin("daniyal admin", "daniyal@gmail.com ")
+
+// console.log(st1)
+
+
+// callback suntion and set time out 
+
+
+
+// function sum(a,b){
+//     console.log(a+b);
+// }
+
+// function cal(a,b ,sumbc){
+//     sumbc(a,b)
+// }
+// cal(1,5,sum)
+
+
+
+
+// call back function and callback hell
+//  function getData(data1,data2){
+//     setTimeout(()=>{
+//         console.log("data1",data1);
+//         if(data2){
+//             data2()
+//         }
+
+//     },2000)
+//  }
+// callback hell 
+
+//  getData(1,()=>{
+//     getData(2,()=>{
+//         getData(3,()=>{
+//             getData(4)
+//         })
+//     });
+//  });
+
+// let a = 0;
+// const promise = new Promise((resolve , reject)=>{
+//     console.log("promise call");
+//     resolve(123 );
+        
+// });
+
+
+// function getData(data1,data2){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log("data1",data1);
+//             resolve("promise call")
+ 
+//             if(data2){
+//                 data2()
+//             }
+    
+//         },8000)
+//     })
+       
+//      }
+
+
+
+
+// then and catch in Promise
+
+
+// const getpromise = ()=>{
+
+//     return new Promise((resolve , reject)=>{
+//         console.log("promise call");
+//         // resolve(123 );
+//        reject("error")     
+//     });
+// } 
+
+
+// let promise = getpromise();
+// promise.then((res)=>{
+//     console.log("proomise fulfilled ",res)
+
+// }
+// )
+// promise.catch((err)=>{
+//     console.log("rej ect",err)
+// })
+
+
+// function asyncFunc1(){
+//     return new Promise((resolve , reject)=>{
+//                 setTimeout(()=>{
+//                     console.log("data1");
+//                     resolve("sucess");
+
+//                 },2000)     
+//             }); 
+// }
+
+
+// function asyncFunc2(){
+//     return new Promise((resolve , reject)=>{
+//                 setTimeout(()=>{
+//                     console.log("data2");
+//                     resolve("sucess");
+
+//                 },2000)     
+//             }); 
+// }
+
+
+// console.log("fetching data 1");
+// asyncFunc1().then((res)=>{
+//     console.log(res)
+//     console.log("fetching data 2");
+//     asyncFunc2().then((res)=>{
+//         console.log(res)
+    
+//     })
+// })
+
+
+
+// async await in js 
+
+function api (){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            console.log("weather data");
+            resolve("sucess");
+
+        },2000) 
+    })
 }
 
-class admin extends user {
-    constructor(name , email){
-        super(name,email);
 
-    }
+async function getweather(){
+    await api()
+    await api()
 
-    editData(){
-        data = "some new value"
-    }
+    await api()
+
+    await api()
 
 }
-
-let st1  = new admin("daniyal admin", "daniyal@gmail.com ")
-
-console.log(st1)
