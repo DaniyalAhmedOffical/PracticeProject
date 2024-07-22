@@ -381,27 +381,103 @@
 //     })
 // })
 
+// promise chian
+// function getData(data1){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log("data1",data1);
+//             resolve("DATA1 call")
+
+    
+//         },8000)
+//     })
+       
+//      }
+
+// getData(1).then((res)=>{
+//     console.log("getting data 2");
+//     return getData(2);
+
+
+// }).then((res)=>{
+//     console.log("getting data 2");
+//     return getData(2);
+
+
+// })
 
 
 // async await in js 
 
-function api (){
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            console.log("weather data");
-            resolve("sucess");
+// function api (){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log("weather data");
+//             resolve("sucess");
 
-        },2000) 
-    })
-}
+//         },2000) 
+//     })
+// }
 
 
-async function getweather(){
-    await api()
-    await api()
+// async function getweather(){
+//     await api()
+//     await api()
+//     await api()
+//     await api()
+// } 
 
-    await api()
 
-    await api()
+// function getData(data1){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             console.log("data1",data1);
+//             resolve("DATA1 call")
 
-}
+    
+//         },8000)
+//     })
+       
+//      }
+
+
+
+
+    //  async function myData(){
+    //     await getData(1);
+    //     await getData(2);
+    //     await getData(3);
+    //     await getData(4);
+    //     await getData(5);
+        
+
+    //  }
+
+
+    
+
+// fetch data from api 
+
+const ApiUrl = "https://cat-fact.herokuapp.com/facts";
+
+const para =  document.querySelector("#fact");
+const btn =   document.querySelector("#btn")
+// const promise =  fetch(ApiUrl)
+
+//console.log(promise);
+
+
+let catFact =  async ()=>{
+    let respone = await fetch(ApiUrl);
+    console.log(respone)
+    let data = await respone.json();
+    // console.log(data[0].text);
+    para.innerText = data[0].text;
+
+} 
+
+
+btn.addEventListener("click",catFact)
+
+
+
